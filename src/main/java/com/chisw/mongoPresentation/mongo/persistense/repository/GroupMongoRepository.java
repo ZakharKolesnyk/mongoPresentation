@@ -10,4 +10,7 @@ public interface GroupMongoRepository extends MongoRepository<Group, String> {
 
     @Query(value = "{'teachers':?0}", fields = "{'id':1, 'name':1}")
     List<Group> listByTeacherIdDto(String teacherId);
+
+    @Query(value = "{'students.id':?0}", fields = "{'students':1}")
+    Group findStudentById(String id);
 }

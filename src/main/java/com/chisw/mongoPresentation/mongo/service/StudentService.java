@@ -10,10 +10,6 @@ public interface StudentService {
 
     StudentDto byIdDto(String id);
 
-    StudentDto createAndReturnDto(StudentDto student);
-
-    List<StudentDto> createAndReturnDto(List<StudentDto> student);
-
     void delete(String id);
 
     List<StudentDto> listDtoByTeacherIdAndGroupId(String teacherId, String groupId);

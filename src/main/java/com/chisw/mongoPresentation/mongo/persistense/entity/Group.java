@@ -25,14 +25,13 @@ public class Group implements Serializable {
     private String name;
 
     @JsonIgnore
-    @DBRef(db = "students", lazy = true)
     private List<Student> students;
 
     @JsonIgnore
     @DBRef(db = "teachers", lazy = true)
     private List<Teacher> teachers;
 
-    public GroupDto dto(){
-        return GroupDto.builder().id(id).name(name).build();
+    public GroupDto dto() {
+        return GroupDto.builder().id(id).name(name).students(students).build();
     }
 }

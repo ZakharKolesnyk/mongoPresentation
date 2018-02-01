@@ -59,7 +59,8 @@ public class GroupServiceImpl implements GroupService {
     @Override
     public GroupDto createAndReturnByTeacherIdDto(String teacherId, GroupDto groupDto) {
         Teacher teacher = teacherRepository.findOne(teacherId);
-        Group group = repository.save(Group.builder().name(groupDto.getName()).teachers(Collections.singletonList(teacher)).build());
+        Group group = repository.save(Group.builder().name(groupDto.getName()).students(groupDto.getStudents())
+                .teachers(Collections.singletonList(teacher)).build());
         if (Objects.isNull(teacher.getGroups())) {
             teacher.setGroups(new ArrayList<>());
         }
